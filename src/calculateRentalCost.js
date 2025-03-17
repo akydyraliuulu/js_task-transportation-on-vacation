@@ -16,7 +16,9 @@ function calculateRentalCost(days) {
 
   if (days >= discountDays) {
     return totalCost - discount;
-  } else if (days >= halfDiscountDays) {
+  }
+
+  if (days >= halfDiscountDays && days < discountDays) {
     return totalCost - halfDiscount;
   }
 
