@@ -14,11 +14,13 @@ function calculateRentalCost(days) {
 
   const totalCost = days * costPerDay;
 
-  return days >= discountDays
-    ? totalCost - discount
-    : days >= halfDiscountDays
-      ? totalCost - halfDiscount
-      : totalCost;
+  if (days >= discountDays) {
+    return totalCost - discount;
+  } else if (days >= halfDiscountDays) {
+    return totalCost - halfDiscount;
+  }
+
+  return totalCost;
 }
 
 module.exports = calculateRentalCost;
